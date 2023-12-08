@@ -1,13 +1,7 @@
 name: tests CJA
 run-name: ${{ github.actor }} / tests CJA
 
-on:
-  workflow_run:
-    workflows: [Build and test]
-    types:
-      - completed
-    branches:
-      - main
+on: [push]
 
 jobs:
   deploy:
