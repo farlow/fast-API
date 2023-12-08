@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} / tests CJA
 
 on:
   workflow_run:
-    workflows: [Build and test]
+    workflows: build-and-test
     types:
       - completed
       
@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: print test image tag
         run: |
-          echo "test image tag : ${{steps.[Build and test].outputs.test_image_tag}}"
+          echo "test image tag : ${{steps.build-and-test.outputs.test_image_tag}}"
 
   on-build-test-failure:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
