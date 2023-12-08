@@ -1,0 +1,17 @@
+name: tests workflow reutilisable
+run-name: run by ${{ github.actor }}
+
+on:
+  workflow_call:
+      inputs:
+        test_image_tag:
+          required: true
+          type: string
+      
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "test image tag : ${{inputs.test_image_tag}}"
+      
